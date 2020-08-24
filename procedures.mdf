@@ -1,0 +1,44 @@
+--procedimento mostrar
+create proc spmostrar_categoria
+as
+select top 200 * from categoria
+order by idcategoria desc
+go
+
+--procedimento buscar nome
+create proc spbuscar_nome
+@textobuscar varchar(50)
+as select * from categoria
+where nome like @textobuscar +'%'
+go
+
+
+--procedimento inserir categoria
+create proc spinserir_categoria
+@idcategoria int output,
+@nome varchar(50),
+@descriacao varchar(100)
+as
+insert into categoria (nome, descricao)
+values (@nome, @descriacao)
+go
+
+
+--precedimento editar categoria
+create proc speditar_categoria
+@idcategoria int,
+@nome varchar(50),
+@descricao varchar(100)
+as
+update categoria set nome = @nome,
+descricao = @descricao where
+idcategoria = @idcategoria
+go
+
+--procedimento excluir
+create proc spdeletar_categoria
+@idcategoria int
+as
+delete from categoria where
+idcategoria = @idcategoria
+go
