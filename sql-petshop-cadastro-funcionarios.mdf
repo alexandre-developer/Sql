@@ -1,0 +1,12 @@
+CREATE TABLE petshop_funcionarios(
+id_funcionario int identity(1,1) not null
+,nome varchar(100)
+,função varchar(100)
+,salario varchar(100)
+,cidade varchar(100)
+,bairro varchar(100)
+,rua varchar(100)
+,numero int
+
+constraint pk_id_funcionario primary key (id_funcionario)
+);
